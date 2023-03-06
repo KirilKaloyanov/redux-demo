@@ -1,3 +1,4 @@
+const { fetchUsers } = require('./app/features/user/userSlice.js');
 const store = require('./app/store.js');
 const cakeActions = require('./app/features/cake/cakeSlice').cakeActions;
 const brownieActions = require('./app/features/brownie/brownieSlice').brownieActions;
@@ -8,13 +9,14 @@ const unsubscribe = store.subscribe(() => {
     console.log('Updated state', store.getState());
 });
 
-store.dispatch(cakeActions.ordered());
-store.dispatch(cakeActions.ordered());
-store.dispatch(cakeActions.ordered());
-store.dispatch(cakeActions.restocked(3));
-store.dispatch(brownieActions.ordered());
-store.dispatch(brownieActions.ordered());
-store.dispatch(brownieActions.ordered());
-store.dispatch(brownieActions.restocked(3));
+store.dispatch(fetchUsers());
 
-unsubscribe();
+// store.dispatch(cakeActions.ordered());
+// store.dispatch(cakeActions.ordered());
+// store.dispatch(cakeActions.ordered());
+// store.dispatch(cakeActions.restocked(3));
+// store.dispatch(brownieActions.ordered());
+// store.dispatch(brownieActions.ordered());
+// store.dispatch(brownieActions.restocked(2));
+
+// unsubscribe();
